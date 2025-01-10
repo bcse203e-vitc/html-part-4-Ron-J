@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Registration form</title>
+</head>
+
+<body>
+ <h1>Register</h1>
+ <form action="/registration" method="post">
+ <!-- Full Name -->
+ <label for="Fullname">Full Name:</label><br>
+ <input type="text" id="fullname" name="fullname" required><br><br>
+ <!-- Email -->
+ <label for="email">Email:</label><br>
+ <input type="email" id="email" name="email" required><br><br>
+ <!-- Phone Number -->
+ <label for="number">Phone Number</label><br>
+ <input type="number" id="number" name="number" minlength="10" maxlength="10" required><br><br>
+<!-- gender -->
+ <label for="gender">Select Your Gender</label><br>
+ <input type="radio" id="gender1" name="gender" value="female" required>
+ <label for="gender1">Female</label><br>
+ <input type="radio" id="gender2" name="gender" value="male" required>
+ <label for="gender2">Male</label><br><br>
+ <!-- Age Group  -->
+<label for="age">Select your age group</label>
+<select name="age" id="age">
+    <option value="22">0-22</option>
+    <option value="35">23-35</option>
+    <option value="100">35+</option>
+</select><br><br>
+<!-- Topics of interest-->
+<label for="interests">Select Your Interests</label><br>
+ <input type="checkbox" id="interest1" name="interests">
+ <label for="interest1">Gaming</label><br>
+ <input type="checkbox" id="interest2" name="interests">
+ <label for="interest2">Sports</label><br>
+ <input type="checkbox" id="interest3" name="interests">
+ <label for="interest3">Music</label><br><br>
+ <!-- Additional Comments-->
+  <label for="comments">Additional Comments</label><br>
+<textarea id="comments" name="comments"></textarea><br><br>
+ <!-- Submit-->
+ <button type="submit">Register</button><br><br>
+ </form>
+</body>
