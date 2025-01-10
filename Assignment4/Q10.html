@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Customizable Form Template</title>
+</head>
+<body>
+    <h1>Create Your Form</h1>
+    <form id="customForm">
+        <label for="formName">Form Name:</label><br>
+        <input type="text" id="formName" name="formName"><br><br>
+        
+        <label for="numFields">Number of Input Fields:</label><br>
+        <input type="number" id="numFields" name="numFields"><br><br>
+        
+        <label for="fieldType">Field Types:</label><br>
+        <select id="fieldType" name="fieldType">
+            <option value="text">Text</option>
+            <option value="email">Email</option>
+            <option value="number">Number</option>
+            <option value="date">Date</option>
+        </select><br><br>
+        
+        <label for="fieldLabel">Field Labels:</label><br>
+        <input type="text" id="fieldLabel" name="fieldLabel"><br><br>
+        
+        <button type="button" onclick="generatePreview()">Generate Preview</button>
+    </form>
+    
+    <h2>Form Preview</h2>
+    <form id="formPreview">
+        <!-- Dynamic preview will appear here -->
+    </form>
+    
+    <script>
+        function generatePreview() {
+            const numFields = document.getElementById('numFields').value;
+            const fieldType = document.getElementById('fieldType').value;
+            const fieldLabel = document.getElementById('fieldLabel').value;
+            
+            const preview = document.getElementById('formPreview');
+            preview.innerHTML = ''; // Clear previous preview
+            
+            for (let i = 0; i < numFields; i++) {
+                const label = document.createElement('label');
+                label.textContent = fieldLabel + ' ' + (i + 1) + ':';
+                preview.appendChild(label);
+                
+                const input = document.createElement('input');
+                input.type = fieldType;
+                preview.appendChild(input);
+                
+                const br = document.createElement('br');
+                preview.appendChild(br);
+                preview.appendChild(br);
+            }
+        }
+    </script>
+</body>
+</html>

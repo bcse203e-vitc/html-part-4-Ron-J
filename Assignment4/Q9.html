@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hotel Booking Form</title>
+</head>
+<body>
+    <h1>Book a Hotel Room</h1>
+    <form>
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name"><br><br>
+        
+        <label for="contact">Contact Info:</label><br>
+        <input type="text" id="contact" name="contact"><br><br>
+        
+        <label for="checkin">Check-in Date:</label><br>
+        <input type="date" id="checkin" name="checkin"><br><br>
+        
+        <label for="checkout">Check-out Date:</label><br>
+        <input type="date" id="checkout" name="checkout"><br><br>
+        
+        <label for="guests">Number of Guests:</label><br>
+        <input type="number" id="guests" name="guests"><br><br>
+        
+        <label for="roomtype">Room Type:</label><br>
+        <select id="roomtype" name="roomtype">
+            <option value="single">Single</option>
+            <option value="double">Double</option>
+            <option value="suite">Suite</option>
+        </select><br><br>
+        
+        <p>Additional Services:</p>
+        <input type="checkbox" id="breakfast" name="services" value="breakfast">
+        <label for="breakfast">Breakfast</label><br>
+        <input type="checkbox" id="airport" name="services" value="airport">
+        <label for="airport">Airport Pickup</label><br><br>
+        
+        <p>Total Cost: <input type="text" id="totalCost" placeholder="Calculated dynamically" readonly></p>
+        
+        <button type="submit">Book Now</button>
+    </form>
+</body>
+</html>

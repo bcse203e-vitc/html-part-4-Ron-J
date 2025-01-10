@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Booking Form</title>
+</head>
+<body>
+    <h1>Travel Booking Form</h1>
+    <form>
+        <label for="full-name">Full Name:</label>
+        <input type="text" id="full-name" name="full-name" required><br><br>
+
+        <label for="contact-info">Contact Information:</label>
+        <input type="text" id="contact-info" name="contact-info" required><br><br>
+
+        <label for="destination">Destination:</label>
+        <select id="destination" name="destination" required>
+            <option value="" disabled selected>Select a destination</option>
+            <option value="100">New York - $100</option>
+            <option value="200">Paris - $200</option>
+            <option value="300">Tokyo - $300</option>
+        </select><br><br>
+
+        <label for="travel-dates">Travel Dates:</label>
+        <input type="date" id="travel-dates" name="travel-dates" required><br><br>
+
+        <label for="travelers">Number of Travelers:</label>
+        <input type="number" id="travelers" name="travelers" min="1" value="1" onchange="calculateTotalCost()" required><br><br>
+
+        <label>Travel Class:</label><br>
+        <input type="radio" id="economy" name="travel-class" value="1" onchange="calculateTotalCost()" required>
+        <label for="economy">Economy</label><br>
+        <input type="radio" id="business" name="travel-class" value="1.5" onchange="calculateTotalCost()">
+        <label for="business">Business</label><br>
+        <input type="radio" id="first-class" name="travel-class" value="2" onchange="calculateTotalCost()">
+        <label for="first-class">First Class</label><br><br>
+
+        <input type="checkbox" id="travel-insurance" name="travel-insurance">
+        <label for="travel-insurance">Opt for travel insurance ($20)</label><br><br>
+
+        <p>Total Cost: $<span id="total-cost">0</span></p>
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        function calculateTotalCost() {
+            const destinationCost = parseFloat(document.getElementById('destination').value) || 0;
+            const numberOfTravelers = parseInt(document.getElementById('travelers').value) || 0;
+            const travelClassMultiplier = parseFloat(document.querySelector('input[name="travel-class"]:checked')?.value) || 0;
+            const insuranceCost = document.getElementById('travel-insurance').checked ? 20 : 0;
+            const totalCost = (destinationCost * travelClassMultiplier * numberOfTravelers) + insuranceCost;
+            document.getElementById('total-cost').innerText = totalCost.toFixed(2);
+        }
+    </script>
+</body>
+</html>

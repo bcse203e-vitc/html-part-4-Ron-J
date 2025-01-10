@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Product Order Form</title>
+</head>
+<body>
+    <h1>Product Order Form</h1>
+    <form>
+        <label for="customer-name">Customer Name:</label>
+        <input type="text" id="customer-name" name="customer-name" required><br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="address">Address:</label>
+        <input type="text" id="address" name="address" required><br><br>
+
+        <label for="product">Product:</label>
+        <select id="product" name="product" onchange="calculateTotalPrice()" required>
+            <option value="" disabled selected>Select a product</option>
+            <option value="10">Product A - $10</option>
+            <option value="20">Product B - $20</option>
+            <option value="30">Product C - $30</option>
+        </select><br><br>
+
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" name="quantity" min="1" value="1" onchange="calculateTotalPrice()" required><br><br>
+
+        <label>Delivery Preferences:</label><br>
+        <input type="radio" id="standard" name="delivery" value="Standard" required>
+        <label for="standard">Standard</label><br>
+        <input type="radio" id="express" name="delivery" value="Express">
+        <label for="express">Express</label><br><br>
+
+        <label for="coupon">Apply Coupon:</label>
+        <input type="text" id="coupon" name="coupon">
+        <button type="button" onclick="applyCoupon()">Apply</button><br><br>
+
+        <p>Total Price: $<span id="total-price">0</span></p>
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        function calculateTotalPrice() {
+            const productPrice = parseFloat(document.getElementById('product').value) || 0;
+            const quantity = parseInt(document.getElementById('quantity').value) || 0;
+            const totalPrice = productPrice * quantity;
+            document.getElementById('total-price').innerText = totalPrice.toFixed(2);
+        }
+
+        function applyCoupon() {
+            const coupon = document.getElementById('coupon').value;
+            let totalPrice = parseFloat(document.getElementById('total-price').innerText) || 0;
+            if (coupon === "DISCOUNT10") {
+                totalPrice *= 0.9;
+            }
+            document.getElementById('total-price').innerText = totalPrice.toFixed(2);
+        }
+    </script>
+</body>
+</html>
