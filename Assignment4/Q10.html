@@ -22,38 +22,8 @@
         
         <label for="fieldLabel">Field Labels:</label><br>
         <input type="text" id="fieldLabel" name="fieldLabel"><br><br>
-        
-        <button type="button" onclick="generatePreview()">Generate Preview</button>
+    
     </form>
     
-    <h2>Form Preview</h2>
-    <form id="formPreview">
-        <!-- Dynamic preview will appear here -->
-    </form>
-    
-    <script>
-        function generatePreview() {
-            const numFields = document.getElementById('numFields').value;
-            const fieldType = document.getElementById('fieldType').value;
-            const fieldLabel = document.getElementById('fieldLabel').value;
-            
-            const preview = document.getElementById('formPreview');
-            preview.innerHTML = ''; // Clear previous preview
-            
-            for (let i = 0; i < numFields; i++) {
-                const label = document.createElement('label');
-                label.textContent = fieldLabel + ' ' + (i + 1) + ':';
-                preview.appendChild(label);
-                
-                const input = document.createElement('input');
-                input.type = fieldType;
-                preview.appendChild(input);
-                
-                const br = document.createElement('br');
-                preview.appendChild(br);
-                preview.appendChild(br);
-            }
-        }
-    </script>
 </body>
 </html>
