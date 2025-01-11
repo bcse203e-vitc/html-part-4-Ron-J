@@ -26,32 +26,20 @@
         <input type="date" id="travel-dates" name="travel-dates" required><br><br>
 
         <label for="travelers">Number of Travelers:</label>
-        <input type="number" id="travelers" name="travelers" min="1" value="1" onchange="calculateTotalCost()" required><br><br>
+        <input type="number" id="travelers" name="travelers" min="1" value="1" required><br><br>
 
         <label>Travel Class:</label><br>
-        <input type="radio" id="economy" name="travel-class" value="1" onchange="calculateTotalCost()" required>
+        <input type="radio" id="economy" name="travel-class" value="1" required>
         <label for="economy">Economy</label><br>
-        <input type="radio" id="business" name="travel-class" value="1.5" onchange="calculateTotalCost()">
+        <input type="radio" id="business" name="travel-class" value="1.5">
         <label for="business">Business</label><br>
-        <input type="radio" id="first-class" name="travel-class" value="2" onchange="calculateTotalCost()">
+        <input type="radio" id="first-class" name="travel-class" value="2">
         <label for="first-class">First Class</label><br><br>
 
         <input type="checkbox" id="travel-insurance" name="travel-insurance">
-        <label for="travel-insurance">Opt for travel insurance ($20)</label><br><br>
-
-        <p>Total Cost: $<span id="total-cost">0</span></p>
+        <label for="travel-insurance">Opt for travel insurance </label><br><br>
         <button type="submit">Submit</button>
     </form>
 
-    <script>
-        function calculateTotalCost() {
-            const destinationCost = parseFloat(document.getElementById('destination').value) || 0;
-            const numberOfTravelers = parseInt(document.getElementById('travelers').value) || 0;
-            const travelClassMultiplier = parseFloat(document.querySelector('input[name="travel-class"]:checked')?.value) || 0;
-            const insuranceCost = document.getElementById('travel-insurance').checked ? 20 : 0;
-            const totalCost = (destinationCost * travelClassMultiplier * numberOfTravelers) + insuranceCost;
-            document.getElementById('total-cost').innerText = totalCost.toFixed(2);
-        }
-    </script>
 </body>
 </html>
